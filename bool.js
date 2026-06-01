@@ -8,11 +8,12 @@
 
   // prototype
   P = {},
-    // Booleans [custom]
+  // Booleans [custom]
   B = {},
-    // Constants
+  // Constants
   Q = {};
 
+  // Examples
   B.Maybe = 0.5;
   B.almostNever = 0.1;
   B.notSure = 0.6;
