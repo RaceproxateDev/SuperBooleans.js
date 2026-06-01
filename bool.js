@@ -84,6 +84,9 @@
         
       if (inp === null || inp === undefined) {
         this.val = NaN;
+        if (this.showErrors) {
+          console.error("You need to type a number")
+        }
         return;
       }
 
