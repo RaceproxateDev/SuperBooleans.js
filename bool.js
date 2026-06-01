@@ -70,11 +70,19 @@
 
   P.equalsTo = P.eq = function (y) {
     return this.cmp(y) === 0
-  }
+  };
 
   Q.equalsTo = Q.eq = function (x,y) {
     return new bool(x).eq(y)
-  }
+  };
+
+  P.notEqualsTo = P.neq = function (y) {
+    return this.cmp(y) !== 0
+  };
+
+  Q.notEqualsTo = Q.neq = function (x,y) {
+    return new bool(x).neq(y)
+  };
 
   function clone(x) {
     var i, k
