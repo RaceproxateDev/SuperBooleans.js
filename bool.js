@@ -117,7 +117,7 @@
     for (i = 0; i < t.length; i++) {
       k = t[i];
       if (x.hasOwnProperty(k)) {
-        bool[k] = x[k]; // Safely copies the setting onto your new constructor function
+        bool[k] = x[k];
       }
     }
 
