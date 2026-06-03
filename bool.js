@@ -91,6 +91,11 @@
     if (typeof this.val === 'number') return this.val;
   }
 
+  Q.toNumber = Q.toNum = function() {
+    var x = this.clone()
+    return new bool(x).toNumber()
+  }
+
   P.subtract = P.sub = function (otherBool) {
     if (!(otherBool instanceof bool)) otherBool=new bool(otherBool)
     if (this.val === 0) return otherBool;
