@@ -87,7 +87,7 @@
     if (this.val === true) return 1;
     if (this.val === false) return 0;
 
-    if (typeof this.val === 'number') return this.val;
+    if (typeof this.val === 'number') return this.inp;
   }
 
   Q.toNumber = Q.toNum = function(x) {
@@ -107,14 +107,6 @@
     return new bool(x).neg()
   }
 
-  P.formatPercent = P.toPercent = function (decimals=2) {
-    return (this.val * 100).toFixed(decimals) + "%";
-  }
-
-  Q.formatPercent = Q.toPercent = function (x, decimals=2) {
-    return new bool(x).toPercent(decimals)
-  }
-
   function clone(x) {
     var i, k
     function bool(inp) {
@@ -124,6 +116,7 @@
         
       if (inp === null || inp === undefined) {
         this.val = NaN;
+
         if (bool.showErrors) {
           console.error("You need to type a number")
         }
@@ -140,9 +133,9 @@
         this.val = Math.random() <= inp;
 
         if (this.val === true) {
-          return true
+          return true;
         } else {
-          return false
+          return false;
         }
       }
     }
