@@ -84,50 +84,27 @@
   }
 
   P.toNumber = P.toNum = function () {
-    if (this.val === 1) return 1;
+    if (this.val === true) return 1;
     if (this.val === false) return 0;
-    if (Number.isNaN(this.val)) return NaN;
 
     if (typeof this.val === 'number') return this.val;
   }
 
-  Q.toNumber = Q.toNum = function() {
-    var x = this.clone()
+  Q.toNumber = Q.toNum = function(x) {
     return new bool(x).toNumber()
   }
 
-  P.subtract = P.sub = function (otherBool) {
-    if (!(otherBool instanceof bool)) otherBool=new bool(otherBool)
-    if (this.val === 0) return otherBool;
-    if (otherBool === 0) return this.val;
-    if (this.val-otherBool===0) return false;
-    if (this.val-otherBool===1) return true;
-    if (Number.isNaN(this.val)||Number.isNaN(otherBool)) return NaN;
-
-    var r = this.val.toNum() - otherBool.toNum()
-
-    return r
-  }
-
-  Q.subtract = Q.sub = function(x,y) {
-    return new bool(x).sub(y)
-  }
-
   P.negate = P.neg = function() {
-    return this.val.toNum() * -1
+    if (this.val === true) return new bool(false);
+    if (this.val === false) return new bool(true);
+
+    if (this.val >= 0) return new bool(this.val*-1)
+    if (this.val < 0) return new bool(Math.abs(this.val))
   }
 
   Q.negate = Q.neg = function() {
     var x = this.clone()
     return new bool(x).neg()
-  }
-
-  P.addition = P.add = function(otherBool) {
-    return this.val.sub(otherBool.neg())
-  }
-
-  Q.addition = Q.add = function(x,y) {
-    return new bool(x).add(y)
   }
 
   P.formatPercent = P.toPercent = function (decimals=2) {
