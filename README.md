@@ -11,6 +11,6 @@ if x is 0.9, that means there's a 90% chance of it being true and 10% chance of 
 
 Functions: 
 ```js
-cmp, gte, gt, lt, lte, eq, neq, toNum, neg, toPercent
+cmp, gte, gt, lt, lte, eq, neq, toNum, neg
 ```
 
